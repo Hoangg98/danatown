@@ -35,8 +35,8 @@ section{padding:56px 20px}
 .desc{font-size:14px;color:var(--soft);line-height:1.78;max-width:500px}
 
 /* LANG */
-.lang-bar{position:fixed;top:12px;right:12px;z-index:1000;display:flex;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:rgba(250,250,247,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.lang-bar button{padding:7px 14px;border:none;background:transparent;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;color:var(--soft);cursor:pointer;transition:all .25s;-webkit-tap-highlight-color:transparent;letter-spacing:.3px}
+.lang-bar{position:fixed;top:12px;right:12px;z-index:1000;display:flex;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:rgba(28,28,25,.5);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.lang-bar button{padding:7px 14px;border:none;background:transparent;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);cursor:pointer;transition:all .25s;-webkit-tap-highlight-color:transparent;letter-spacing:.3px}
 .lang-bar button.on{background:var(--gold);color:#fff}
 
 /* BUTTONS */
@@ -48,13 +48,15 @@ section{padding:56px 20px}
 .btn-msg:active{transform:scale(.97)}
 
 /* HERO */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:76px 20px 44px;background:linear-gradient(178deg,var(--warm) 0%,var(--bg) 55%)}
-.hero-label{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(2.6rem,8.5vw,4.8rem);line-height:1.06;margin-bottom:4px}
-.hero h1 i{color:var(--gold);font-style:italic}
-.hero-sub{font-family:'Instrument Serif',serif;font-size:clamp(.95rem,2.8vw,1.2rem);font-style:italic;color:var(--soft);margin-bottom:28px}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:76px 20px 44px;background:url('images/hero-bg.jpg') center/cover no-repeat;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,25,.55) 0%,rgba(28,28,25,.7) 100%)}
+.hero>*{position:relative;z-index:1}
+.hero-label{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold2);margin-bottom:18px}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(2.6rem,8.5vw,4.8rem);line-height:1.06;margin-bottom:4px;color:#fff}
+.hero h1 i{color:var(--gold2);font-style:italic}
+.hero-sub{font-family:'Instrument Serif',serif;font-size:clamp(.95rem,2.8vw,1.2rem);font-style:italic;color:rgba(255,255,255,.7);margin-bottom:28px}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:32px}
-.pill{padding:7px 14px;border-radius:20px;font-size:12.5px;font-weight:500;background:var(--gold-bg);color:var(--text);border:1px solid var(--border);white-space:nowrap}
+.pill{padding:7px 14px;border-radius:20px;font-size:12.5px;font-weight:500;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);white-space:nowrap;backdrop-filter:blur(4px)}
 .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
 /* STORY */
@@ -73,17 +75,17 @@ section{padding:56px 20px}
 /* ROOMS */
 .rooms-scroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-top:32px}
 .rooms-scroll::-webkit-scrollbar{display:none}
-.room-card{min-width:280px;max-width:300px;scroll-snap-align:start;flex-shrink:0;background:var(--card);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04)}
+.room-card{min-width:280px;max-width:300px;scroll-snap-align:start;flex-shrink:0;background:var(--card);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);display:flex;flex-direction:column}
 .room-img{height:190px;background:linear-gradient(135deg,#EAE4DC,#DDD6CB);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);font-size:12px;gap:8px;position:relative}
 .room-img svg{width:32px;height:32px;opacity:.4}
 .room-badge{position:absolute;top:12px;left:12px;padding:5px 12px;border-radius:16px;font-size:11px;font-weight:700;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);color:var(--text)}
 .room-badge.pop{background:rgba(168,134,74,.88);color:#fff}
-.room-body{padding:20px}
+.room-body{padding:20px;display:flex;flex-direction:column;flex:1}
 .room-name{font-family:'Instrument Serif',serif;font-size:1.25rem;margin-bottom:4px}
 .room-detail{font-size:13px;color:var(--soft);margin-bottom:14px}
 .room-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
 .room-tags span{padding:4px 10px;border-radius:16px;font-size:11px;font-weight:500;background:var(--gold-bg);color:var(--soft)}
-.room-cta{display:flex;align-items:center;gap:8px;padding-top:14px;border-top:1px solid rgba(0,0,0,.05);font-size:13.5px;font-weight:600;color:var(--gold);text-decoration:none}
+.room-cta{display:flex;align-items:center;gap:8px;padding-top:14px;border-top:1px solid rgba(0,0,0,.05);font-size:13.5px;font-weight:600;color:var(--gold);text-decoration:none;margin-top:auto}
 
 /* AMENITIES */
 .amen-section{background:var(--dark);color:#fff}
@@ -489,8 +491,8 @@ body.en .room-tags span[data-l="en"]{display:inline!important}
       <span data-l="en">Reply within 30 minutes. Free viewing. No obligation.</span>
     </p>
     <div class="cta-btns">
-      <a href="https://zalo.me/0866041686" class="btn btn-zalo" target="_blank"><span data-l="vi">Zalo: 0866 041 686</span><span data-l="en">Zalo: 0866 041 686</span></a>
-      <a href="#" class="btn btn-msg messenger-link" target="_blank">Messenger</a>
+      <a href="https://zalo.me/0866041686" class="btn btn-zalo" target="_blank"><span data-l="vi">Tư vấn qua Zalo</span><span data-l="en">Contact via Zalo</span></a>
+      <a href="#" class="btn btn-msg messenger-link" target="_blank"><span data-l="vi">Nhắn qua Messenger</span><span data-l="en">Contact via Messenger</span></a>
     </div>
   </div>
 </section>
