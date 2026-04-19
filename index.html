@@ -211,8 +211,65 @@
         </p>
       </section>
 
+      <!-- Collection -->
+      <section id="collection" class="animate-fade-up delay-4 mb-14 md:mb-16">
+        <p class="font-body text-[11px] md:text-xs tracking-[0.35em] text-champagne uppercase font-medium mb-6 md:mb-8">
+          — A First Look —
+        </p>
+
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] text-charcoal-900 mb-6 md:mb-8 italic">
+          The Signature Pieces
+        </h2>
+
+        <p class="font-body text-sm md:text-base text-charcoal-500 font-light leading-relaxed max-w-md mx-auto mb-6 md:mb-8">
+          Three debut pieces. Each crafted in 925 sterling silver, designed to be worn daily.
+        </p>
+
+        <div class="flex items-center justify-center gap-4 mb-6 md:mb-8">
+          <span class="block w-8 h-px bg-champagne"></span>
+          <div class="diamond" style="width:5px;height:5px;"></div>
+          <span class="block w-8 h-px bg-champagne"></span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <!-- Product 1 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,169,110,0.2)]">
+            <div class="aspect-square bg-charcoal-100 overflow-hidden rounded-sm mb-4">
+              <img src="images/necklace.png" alt="Entwined Hearts Necklace" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            </div>
+            <h3 class="font-display text-lg md:text-xl font-medium text-charcoal-900 tracking-wide mb-2">Entwined Hearts Necklace</h3>
+            <p class="font-body text-xs text-charcoal-400 italic font-light mb-2">Interlocking double-heart pendant in 925 silver.</p>
+            <p class="font-body text-sm text-champagne font-medium">$55</p>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,169,110,0.2)]">
+            <div class="aspect-square bg-charcoal-100 overflow-hidden rounded-sm mb-4">
+              <img src="images/ring.png" alt="Solitaire Brilliance Ring" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            </div>
+            <h3 class="font-display text-lg md:text-xl font-medium text-charcoal-900 tracking-wide mb-2">Solitaire Brilliance Ring</h3>
+            <p class="font-body text-xs text-charcoal-400 italic font-light mb-2">Pear-cut moissanite on a pavé band. GRA certified.</p>
+            <p class="font-body text-sm text-champagne font-medium">$75</p>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,169,110,0.2)]">
+            <div class="aspect-square bg-charcoal-100 overflow-hidden rounded-sm mb-4">
+              <img src="images/bracelet.png" alt="Tennis Line Bracelet" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            </div>
+            <h3 class="font-display text-lg md:text-xl font-medium text-charcoal-900 tracking-wide mb-2">Tennis Line Bracelet</h3>
+            <p class="font-body text-xs text-charcoal-400 italic font-light mb-2">Brilliant-cut crystal stones in a timeless silver setting.</p>
+            <p class="font-body text-sm text-champagne font-medium">$65</p>
+          </div>
+        </div>
+
+        <p class="font-body text-xs text-charcoal-400 italic tracking-wide mt-12 text-center">
+          Launching end of April 2026 — Join the waitlist below for 20% off.
+        </p>
+      </section>
+
       <!-- Waitlist Form -->
-      <section class="animate-fade-up delay-4">
+      <section id="waitlist" class="animate-fade-up delay-4">
         <div class="bg-white/60 backdrop-blur-sm border border-charcoal-100 rounded-sm p-8 md:p-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)]">
 
           <p class="font-display text-lg md:text-xl text-charcoal-800 mb-1 font-medium tracking-wide">
@@ -380,6 +437,267 @@
       </div>
     </div>
   </footer>
+
+  <!-- Chatbot -->
+  <div id="chatbot">
+    <div id="chat-icon" onclick="toggleChat()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z" fill="#c9a96e"/>
+        <path d="M7 9H17V11H7V9ZM7 12H15V14H7V12Z" fill="#c9a96e"/>
+      </svg>
+    </div>
+    <div id="chat-window">
+      <div id="chat-header">
+        <span>Aura Craft Assistant</span>
+        <button onclick="toggleChat()">×</button>
+      </div>
+      <div id="chat-body"></div>
+      <div id="chat-footer">
+        <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const script = {
+      greeting: "Hello. I'm here to help with Aura Craft — handcrafted pieces in 925 sterling silver, designed for everyday wear. What brings you here today?",
+      faq: [
+        { keywords: ["real silver", "genuine silver", "925 silver", "sterling silver", "silver plated"], response: "Every piece starts with 925 sterling silver as the base metal, then plated with white gold. No brass underneath — that's what causes the green skin reactions in cheaper jewelry." },
+        { keywords: ["real moissanite", "genuine moissanite", "fake moissanite", "moissanite quality", "GRA certificate"], response: "Our Solitaire Brilliance Ring uses certified moissanite with a GRA authenticity certificate included. It's lab-grown, hypoallergenic, and delivers the fire of a diamond at a fraction of the cost." },
+        { keywords: ["price", "cost", "how much", "pricing", "expensive", "cheap"], response: "The signature collection ranges from $55 to $75. Entwined Hearts Necklace at $55, Tennis Line Bracelet at $65, Solitaire Brilliance Ring at $75. All include gift-ready packaging." },
+        { keywords: ["shipping time", "delivery time", "how long shipping", "when arrives", "US shipping"], response: "7–14 business days to the US with full tracking. You'll get a tracking link by email as soon as your order ships." },
+        { keywords: ["return", "refund", "exchange", "return policy", "if I don't like"], response: "30-day no-questions-asked returns with full refund. Send it back in the original box, and we'll process within 5 business days. Free size exchanges too." },
+        { keywords: ["tarnish", "tarnish guarantee", "will it tarnish", "tarnish resistant"], response: "Tarnish-resistant for up to 12 months of normal wear. If it tarnishes under daily use, we'll replace it free — that's our written guarantee." },
+        { keywords: ["gift packaging", "gift ready", "comes in box", "packaging"], response: "Every piece ships in our signature jewelry box with an authenticity card. Ready to gift as-is, no extra wrapping needed." },
+        { keywords: ["ring sizes", "sizes available", "what sizes", "ring size"], response: "The Solitaire Brilliance Ring comes in US sizes 5, 6, 7, and 8. Unsure? Measure an existing ring's inner diameter or visit a local jeweler for free sizing." },
+        { keywords: ["launch date", "when launch", "launch time", "when available"], response: "End of April 2026. Join the waitlist for 20% off and early access before the public drop." },
+        { keywords: ["international shipping", "ship outside US", "overseas shipping"], response: "At launch, we ship to the United States only. International opens later — join the waitlist to be notified when it does." }
+      ],
+      closing: { keywords: ["love it", "want it", "how do I buy", "interested", "beautiful", "buy now"], response: "Glad you like it. Scroll down to the waitlist form to save 20% off and get early access before launch. Want me to walk you through the form?" },
+      formRedirect: { keywords: ["think about", "maybe later", "not sure", "not ready", "later"], response: "No rush. The waitlist is free and gets you 20% off plus early access. Join now for a heads-up when we launch." },
+      fallback: "I don't have a ready answer for that, but our founder Roy can help directly. Join the waitlist and he'll reply to your email within 24 hours."
+    };
+
+    let chatOpen = false;
+    let messages = [];
+    let greeted = false;
+
+    function toggleChat() {
+      chatOpen = !chatOpen;
+      document.getElementById('chat-window').style.display = chatOpen ? 'flex' : 'none';
+      if (chatOpen && !greeted) {
+        setTimeout(() => {
+          addMessage('bot', script.greeting);
+          greeted = true;
+        }, 400);
+      }
+    }
+
+    function addMessage(type, text, showButton = false) {
+      messages.push({ type, text, showButton });
+      renderMessages();
+    }
+
+    function renderMessages() {
+      const body = document.getElementById('chat-body');
+      body.innerHTML = '';
+      messages.forEach(msg => {
+        const div = document.createElement('div');
+        div.className = msg.type === 'bot' ? 'message bot' : 'message user';
+        div.innerHTML = msg.text;
+        if (msg.showButton) {
+          const btn = document.createElement('button');
+          btn.className = 'waitlist-btn';
+          btn.textContent = 'Join Waitlist Now';
+          btn.onclick = scrollToWaitlist;
+          div.appendChild(btn);
+        }
+        body.appendChild(div);
+      });
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function showTyping() {
+      const body = document.getElementById('chat-body');
+      const typing = document.createElement('div');
+      typing.className = 'typing';
+      typing.textContent = '...';
+      body.appendChild(typing);
+      body.scrollTop = body.scrollHeight;
+      return typing;
+    }
+
+    function hideTyping(typing) {
+      if (typing) typing.remove();
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage('user', text);
+      input.value = '';
+      const typing = showTyping();
+      setTimeout(() => {
+        hideTyping(typing);
+        const response = getResponse(text.toLowerCase());
+        const showButton = response.type === 'closing' || response.type === 'formRedirect';
+        addMessage('bot', response.text, showButton);
+      }, 600);
+    }
+
+    function handleKeyPress(e) {
+      if (e.key === 'Enter') sendMessage();
+    }
+
+    function getResponse(userText) {
+      // Check closing
+      if (script.closing.keywords.some(k => userText.includes(k))) {
+        return { type: 'closing', text: script.closing.response };
+      }
+      // Check form redirect
+      if (script.formRedirect.keywords.some(k => userText.includes(k))) {
+        return { type: 'formRedirect', text: script.formRedirect.response };
+      }
+      // Check FAQ
+      for (let faq of script.faq) {
+        if (faq.keywords.some(k => userText.includes(k))) {
+          return { type: 'faq', text: faq.response };
+        }
+      }
+      // Fallback
+      return { type: 'fallback', text: script.fallback };
+    }
+
+    function scrollToWaitlist() {
+      document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+  <style>
+    #chatbot {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+    }
+    #chat-icon {
+      width: 56px;
+      height: 56px;
+      background: #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    #chat-icon:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(201, 169, 110, 0.3);
+    }
+    #chat-window {
+      display: none;
+      position: fixed;
+      bottom: 96px;
+      right: 24px;
+      width: 360px;
+      height: 520px;
+      background: #faf8f4;
+      border-radius: 8px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.1);
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #chat-header {
+      background: #1a1a1a;
+      color: #faf8f4;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    #chat-header button {
+      background: none;
+      border: none;
+      color: #faf8f4;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    #chat-body {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      font-family: 'Jost', sans-serif;
+      min-height: 0;
+    }
+    .message {
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      max-width: 80%;
+    }
+    .message.bot {
+      background: white;
+      border: 1px solid #e7e7e7;
+      color: #2d2d2d;
+      align-self: flex-start;
+    }
+    .message.user {
+      background: #1a1a1a;
+      color: #faf8f4;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+    .typing {
+      color: #888;
+      font-style: italic;
+    }
+    .waitlist-btn {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px;
+      background: #1a1a1a;
+      color: #faf8f4;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+    }
+    #chat-footer {
+      padding: 16px;
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    #chat-input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #e7e7e7;
+      border-radius: 4px;
+      font-family: 'Jost', sans-serif;
+    }
+    #chat-footer button {
+      padding: 8px 16px;
+      background: #c9a96e;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+    }
+    @media (max-width: 480px) {
+      #chat-window {
+        width: calc(100vw - 32px);
+        right: 16px;
+      }
+    }
+  </style>
 
 </body>
 </html>
