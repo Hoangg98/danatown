@@ -1,703 +1,1814 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA CRAFT — Handcrafted Elegance</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            gold: {
-              50: '#fdf9ef',
-              100: '#f9f0d6',
-              200: '#f2dfab',
-              300: '#e9c96e',
-              400: '#e2b544',
-              500: '#d4982a',
-              600: '#c4811f',
-              700: '#a3601b',
-              800: '#854c1e',
-              900: '#6e401b',
-            },
-            charcoal: {
-              50: '#f6f6f6',
-              100: '#e7e7e7',
-              200: '#d1d1d1',
-              300: '#b0b0b0',
-              400: '#888888',
-              500: '#6d6d6d',
-              600: '#5d5d5d',
-              700: '#4f4f4f',
-              800: '#2d2d2d',
-              900: '#1a1a1a',
-            },
-            cream: '#faf8f4',
-            champagne: '#c9a96e',
-          },
-          fontFamily: {
-            display: ['"Cormorant Garamond"', 'serif'],
-            body: ['"Jost"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Cho Em — 5 Năm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf6f0;
+  --bg-warm: #f4ede0;
+  --ink: #2a1f1c;
+  --ink-soft: #5a4a44;
+  --wine: #8b2942;
+  --wine-deep: #6b1f2a;
+  --gold: #b8915f;
+  --gold-soft: #d4b896;
+  --rose: #d49b8a;
+  --shadow-sm: 0 4px 20px rgba(107, 31, 42, 0.06);
+  --shadow-md: 0 12px 40px rgba(107, 31, 42, 0.08);
+  --shadow-lg: 0 24px 60px rgba(107, 31, 42, 0.12);
+}
 
-    html { scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Jost', sans-serif;
-      background-color: #faf8f4;
-      color: #1a1a1a;
-      overflow-x: hidden;
-    }
+html { -webkit-text-size-adjust: 100%; }
 
-    /* Subtle noise texture overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-    }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    /* Gold shimmer line */
-    .gold-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #c9a96e, transparent);
-    }
+/* Soft background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212, 155, 138, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(184, 145, 95, 0.06), transparent),
+    radial-gradient(ellipse 50% 40% at 10% 70%, rgba(139, 41, 66, 0.04), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
 
-    /* Elegant select styling */
-    select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a96e' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      background-size: 12px;
-    }
+/* Floating petals */
+.petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
 
-    /* Focus states */
-    input:focus, select:focus {
-      outline: none;
-      border-color: #c9a96e !important;
-    }
+.petal {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--rose);
+  border-radius: 50% 0 50% 0;
+  opacity: 0.3;
+  animation: petalFall infinite linear;
+}
 
-    /* CTA button hover */
-    .cta-btn {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+@keyframes petalFall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.4; }
+  100% {
+    transform: translateY(110vh) translateX(80px) rotate(360deg);
+    opacity: 0;
+  }
+}
 
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #d4982a, #c9a96e, #e2b544);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
+/* Scenes */
+.scene {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+}
 
-    .cta-btn:hover::before {
-      opacity: 1;
-    }
+.scene.active {
+  display: flex;
+  animation: sceneIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
 
-    .cta-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 30px rgba(201, 169, 110, 0.3);
-    }
+@keyframes sceneIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .cta-btn span {
-      position: relative;
-      z-index: 1;
-    }
+.scene-inner {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
 
-    /* Fade-in animation */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* Typography */
+.eyebrow {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
 
-    .animate-fade-up {
-      animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-      opacity: 0;
-    }
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.4rem, 9vw, 3.4rem);
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
 
-    .delay-1 { animation-delay: 0.15s; }
-    .delay-2 { animation-delay: 0.3s; }
-    .delay-3 { animation-delay: 0.45s; }
-    .delay-4 { animation-delay: 0.6s; }
-    .delay-5 { animation-delay: 0.75s; }
+.script {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 6vw, 2rem);
+  color: var(--wine);
+  margin-bottom: 28px;
+}
 
-    /* Decorative diamond */
-    .diamond {
-      width: 6px;
-      height: 6px;
-      background: #c9a96e;
-      transform: rotate(45deg);
-      display: inline-block;
-    }
+.divider {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 24px auto;
+}
 
-    /* Input label float effect */
-    .form-field {
-      position: relative;
-    }
+p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
 
-    .form-field label {
-      transition: all 0.3s ease;
-    }
+/* ========= SCENE 1: LOCK ========= */
+.lock-icon-wrap {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
 
-    /* Placeholder styling */
-    ::placeholder {
-      color: #b0b0b0;
-      font-weight: 300;
-    }
-  </style>
+.lock-icon {
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--wine);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--wine);
+  position: relative;
+  animation: lockPulse 3s ease-in-out infinite;
+}
+
+@keyframes lockPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(139, 41, 66, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(139, 41, 66, 0);
+  }
+}
+
+.lock-hint {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.password-input {
+  background: white;
+  border: 2px solid var(--gold-soft);
+  color: var(--ink);
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 500;
+  padding: 16px 24px;
+  text-align: center;
+  letter-spacing: 0.5em;
+  width: 100%;
+  max-width: 240px;
+  outline: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.password-input::placeholder {
+  letter-spacing: 0.3em;
+  font-size: 18px;
+  color: #c9bca8;
+}
+
+.password-input:focus {
+  border-color: var(--wine);
+  box-shadow: var(--shadow-md), 0 0 0 4px rgba(139, 41, 66, 0.1);
+}
+
+.password-input.error {
+  border-color: var(--wine);
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.btn {
+  display: inline-block;
+  background: var(--wine);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-sm);
+  margin-top: 24px;
+}
+
+.btn:hover, .btn:active {
+  background: var(--wine-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:disabled {
+  background: var(--ink-soft);
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.error-msg {
+  color: var(--wine);
+  font-size: 14px;
+  margin-top: 16px;
+  height: 20px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ========= SCENE 2: QUIZ ========= */
+.quiz-intro {
+  margin-bottom: 32px;
+}
+
+.quiz-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: rgba(184, 145, 95, 0.1);
+  border: 1px solid rgba(184, 145, 95, 0.3);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.note-icon {
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.quiz-progress-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.progress-pill {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gold-soft);
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+
+.progress-pill.active {
+  background: var(--wine);
+  opacity: 1;
+  width: 48px;
+}
+
+.progress-pill.done {
+  background: var(--gold);
+  opacity: 1;
+}
+
+.quiz-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(184, 145, 95, 0.15);
+  position: relative;
+}
+
+.quiz-number {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.quiz-question {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 5vw, 1.6rem);
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.quiz-hint {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.quiz-input {
+  width: 100%;
+  background: var(--bg-warm);
+  border: 2px solid transparent;
+  color: var(--ink);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 14px 20px;
+  text-align: center;
+  outline: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.quiz-input:focus {
+  border-color: var(--wine);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(139, 41, 66, 0.08);
+}
+
+.quiz-input.error {
+  border-color: var(--wine);
+  animation: shake 0.5s;
+}
+
+.quiz-input.success {
+  border-color: var(--gold);
+  background: #fdfaf3;
+  color: var(--gold);
+}
+
+.quiz-feedback {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: var(--wine);
+  margin-top: 16px;
+  min-height: 28px;
+  font-weight: 500;
+}
+
+.quiz-feedback.success {
+  color: var(--gold);
+}
+
+/* Reward floating */
+.gift-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: inline-block;
+  animation: giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+/* ========= SCENE 3: VIDEO ========= */
+.video-intro {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.video-card {
+  background: white;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(184, 145, 95, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: linear-gradient(135deg, #2a1f1c 0%, #6b1f2a 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Nếu video horizontal thì dùng aspect-ratio 16/9 thay vì 9/16 */
+.video-wrapper.horizontal {
+  aspect-ratio: 16 / 9;
+}
+
+.video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Poster overlay */
+.video-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at center, rgba(212, 155, 138, 0.2), transparent 60%),
+    linear-gradient(135deg, #3a1f24 0%, #6b1f2a 50%, #8b2942 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: opacity 0.6s ease;
+  cursor: pointer;
+}
+
+.video-poster.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-poster::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 155, 138, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(212, 184, 150, 0.1), transparent 40%);
+  pointer-events: none;
+}
+
+/* Decorative corners on poster */
+.poster-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(212, 184, 150, 0.4);
+  pointer-events: none;
+}
+
+.poster-corner.tl { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+.poster-corner.tr { top: 16px; right: 16px; border-left: none; border-bottom: none; }
+.poster-corner.bl { bottom: 16px; left: 16px; border-right: none; border-top: none; }
+.poster-corner.br { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+
+.poster-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+}
+
+.poster-eyebrow {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.poster-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.6rem, 5.5vw, 2rem);
+  color: #f4ede0;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.poster-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  color: var(--gold-soft);
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+.play-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(244, 237, 224, 0.15);
+  border: 2px solid var(--gold-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.play-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 18px solid #f4ede0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.play-btn::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 184, 150, 0.3);
+  animation: playPulse 2.5s ease-out infinite;
+}
+
+@keyframes playPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.play-btn:hover, .play-btn:active {
+  background: rgba(244, 237, 224, 0.25);
+  border-color: #f4ede0;
+  transform: scale(1.05);
+}
+
+.poster-hint {
+  margin-top: 24px;
+  font-size: 12px;
+  color: rgba(244, 237, 224, 0.6);
+  font-style: italic;
+}
+
+/* "Yêu Anh" button special */
+.btn-love {
+  background: linear-gradient(135deg, var(--wine) 0%, var(--rose) 100%);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  padding: 16px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-love::before {
+  content: '♥';
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.btn-love:hover, .btn-love:active {
+  background: linear-gradient(135deg, var(--wine-deep) 0%, var(--wine) 100%);
+}
+
+/* ========= SCENE 4: LETTER ========= */
+.letter-intro {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.letter-paper {
+  background: 
+    linear-gradient(180deg, #fdfaf3 0%, #faf3e6 100%);
+  border-radius: 20px;
+  padding: 40px 28px 36px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(184, 145, 95, 0.25);
+  position: relative;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+/* Decorative corners cho lá thư */
+.letter-paper::before,
+.letter-paper::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.letter-paper::before {
+  top: 14px;
+  left: 14px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.letter-paper::after {
+  bottom: 14px;
+  right: 14px;
+  border-left: none;
+  border-top: none;
+}
+
+.letter-corner-tr,
+.letter-corner-bl {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.letter-corner-tr {
+  top: 14px;
+  right: 14px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.letter-corner-bl {
+  bottom: 14px;
+  left: 14px;
+  border-right: none;
+  border-top: none;
+}
+
+.letter-greeting {
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  color: var(--wine);
+  margin-bottom: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.letter-body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink);
+  font-weight: 400;
+  text-align: left;
+}
+
+.letter-body p {
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: 16px;
+  text-align: left;
+}
+
+.letter-body p:last-child {
+  margin-bottom: 0;
+}
+
+.letter-signoff {
+  text-align: right;
+  margin-top: 24px;
+  font-family: 'Caveat', cursive;
+  font-size: 26px;
+  color: var(--wine);
+  font-weight: 500;
+}
+
+/* ========= SIGNATURE PAD ========= */
+.signature-section {
+  background: white;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(184, 145, 95, 0.15);
+}
+
+.sig-label {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.sig-label .eyebrow {
+  margin-bottom: 8px;
+}
+
+.sig-label .sig-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.sig-label .sig-hint {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.sig-pad-wrap {
+  position: relative;
+  background: var(--bg-warm);
+  border-radius: 12px;
+  border: 2px dashed rgba(184, 145, 95, 0.4);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.sig-pad-wrap.has-signature {
+  border-color: var(--gold);
+  border-style: solid;
+}
+
+.signature-pad {
+  display: block;
+  width: 100%;
+  height: 160px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.sig-baseline {
+  position: absolute;
+  bottom: 36px;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: rgba(184, 145, 95, 0.3);
+  pointer-events: none;
+}
+
+.sig-x-mark {
+  position: absolute;
+  bottom: 28px;
+  left: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: rgba(184, 145, 95, 0.5);
+  pointer-events: none;
+  font-weight: 500;
+}
+
+.sig-clear {
+  background: transparent;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 12px;
+  text-decoration: underline;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-style: italic;
+  display: block;
+  margin-left: auto;
+}
+
+.sig-clear:hover {
+  color: var(--wine);
+}
+
+/* LOVE SIGN button */
+.btn-love-sign {
+  background: linear-gradient(135deg, var(--wine) 0%, var(--rose) 100%);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 18px 56px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-love-sign::before {
+  content: '♥';
+  margin-right: 10px;
+  font-size: 15px;
+  font-style: normal;
+}
+
+.btn-love-sign:hover:not(:disabled),
+.btn-love-sign:active:not(:disabled) {
+  background: linear-gradient(135deg, var(--wine-deep) 0%, var(--wine) 100%);
+  letter-spacing: 0.25em;
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: -20px;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  z-index: 1000;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ========= SCENE 5: FINAL ========= */
+.final-hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.final-heart {
+  font-size: 72px;
+  color: var(--wine);
+  display: inline-block;
+  animation: heartBeat 1.4s ease-in-out infinite;
+  margin-bottom: 24px;
+  text-shadow: 0 8px 30px rgba(139, 41, 66, 0.3);
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+.final-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.final-title .highlight {
+  color: var(--wine);
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+}
+
+.final-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.6rem, 5vw, 2rem);
+  color: var(--wine);
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.final-tagline {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* Gift card section */
+.gift-card {
+  background: linear-gradient(135deg, #fdfaf3 0%, #f9f0e0 100%);
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(184, 145, 95, 0.3);
+  position: relative;
+  overflow: hidden;
+  margin: 32px 0;
+}
+
+.gift-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--wine), var(--rose), var(--gold), var(--rose), var(--wine));
+}
+
+.gift-eyebrow {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.gift-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 5vw, 1.7rem);
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.gift-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.gift-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(184, 145, 95, 0.2);
+  text-align: left;
+}
+
+.gift-step-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--wine);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.gift-step-text {
+  flex: 1;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.5;
+  padding-top: 4px;
+}
+
+.gift-step-text strong {
+  color: var(--wine);
+  font-weight: 600;
+}
+
+.gift-reward {
+  text-align: center;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(139, 41, 66, 0.05), rgba(212, 155, 138, 0.1));
+  border-radius: 12px;
+  margin-top: 16px;
+  border: 1px dashed var(--gold);
+}
+
+.gift-reward-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  display: inline-block;
+  animation: giftFloat 3s ease-in-out infinite;
+}
+
+.gift-reward-text {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: var(--wine);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Gift hint thay nút gọi điện */
+.gift-hint {
+  text-align: center;
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: rgba(139, 41, 66, 0.06);
+  border: 1px dashed rgba(139, 41, 66, 0.3);
+  border-radius: 100px;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: var(--wine);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.hint-arrow {
+  display: inline-block;
+  font-size: 18px;
+  animation: arrowBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0) rotate(-15deg); }
+  50% { transform: translateY(-4px) rotate(15deg); }
+}
+
+/* Final signature */
+.final-signoff {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(184, 145, 95, 0.3);
+}
+
+.final-signoff-text {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+  color: var(--wine);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.final-date {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-top: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ========= NEXT BUTTON ========= */
+.next-wrap {
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.next-wrap.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Mobile tweaks */
+@media (max-width: 380px) {
+  .scene { padding: 32px 16px; }
+  .quiz-card { padding: 24px 18px; }
+  .password-input { font-size: 24px; }
+}
+</style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
-  <!-- Header -->
-  <header class="animate-fade-up">
-    <div class="max-w-5xl mx-auto px-6 py-6 md:py-8 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="diamond"></div>
-        <h1 class="font-display text-xl md:text-2xl font-medium tracking-[0.3em] text-charcoal-900 uppercase">
-          Aura Craft
-        </h1>
-        <div class="diamond"></div>
-      </div>
-      <p class="hidden sm:block font-body text-xs tracking-[0.2em] text-charcoal-400 uppercase font-light">
-        Est. 2026
-      </p>
+<div class="petals" id="petals"></div>
+
+<!-- ========= MÀN 1: LOCK ========= -->
+<section class="scene active" id="scene-lock">
+  <div class="scene-inner">
+    <div class="eyebrow">Cho người tôi yêu</div>
+    
+    <div class="lock-icon-wrap">
+      <div class="lock-icon">♥</div>
     </div>
-    <div class="gold-line"></div>
-  </header>
+    
+    <h1><em>Năm Năm</em></h1>
+    <div class="script">— của chúng ta —</div>
+    
+    <div class="divider"></div>
+    
+    <div class="lock-hint">Có một câu chuyện đang đợi em.<br>Mật mã, em đoán xem?</div>
+    
+    <input 
+      type="text" 
+      class="password-input" 
+      id="password" 
+      placeholder="••••" 
+      maxlength="4" 
+      inputmode="numeric"
+      autocomplete="off">
+    
+    <div class="error-msg" id="lock-error"></div>
+    
+    <button class="btn" onclick="unlock()">Mở khóa</button>
+  </div>
+</section>
 
-  <!-- Main Content -->
-  <main class="flex-1 flex items-center justify-center px-6 py-12 md:py-20">
-    <div class="max-w-xl w-full text-center">
-
-      <!-- Hero -->
-      <section class="mb-14 md:mb-16">
-        <p class="animate-fade-up delay-1 font-body text-[11px] md:text-xs tracking-[0.35em] text-champagne uppercase font-medium mb-6 md:mb-8">
-          — The New Collection —
-        </p>
-
-        <h2 class="animate-fade-up delay-2 font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] text-charcoal-900 mb-6 md:mb-8">
-          Handcrafted Elegance,<br>
-          <em class="font-light italic text-charcoal-700">Inspired by Heritage.</em>
-        </h2>
-
-        <div class="animate-fade-up delay-3 flex items-center justify-center gap-4 mb-6 md:mb-8">
-          <span class="block w-8 h-px bg-champagne"></span>
-          <div class="diamond" style="width:5px;height:5px;"></div>
-          <span class="block w-8 h-px bg-champagne"></span>
-        </div>
-
-        <p class="animate-fade-up delay-3 font-body text-sm md:text-base text-charcoal-500 font-light leading-relaxed max-w-md mx-auto">
-          Our exclusive debut collection of handcrafted jewelry is dropping soon.
-          Be the first to explore pieces made with intention, artistry, and soul.
-        </p>
-      </section>
-
-      <!-- Collection -->
-      <section id="collection" class="animate-fade-up delay-4 mb-14 md:mb-16">
-        <p class="font-body text-[11px] md:text-xs tracking-[0.35em] text-champagne uppercase font-medium mb-6 md:mb-8">
-          — A First Look —
-        </p>
-
-        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] text-charcoal-900 mb-6 md:mb-8 italic">
-          The Signature Pieces
-        </h2>
-
-        <p class="font-body text-sm md:text-base text-charcoal-500 font-light leading-relaxed max-w-md mx-auto mb-6 md:mb-8">
-          Three debut pieces. Each crafted in 925 sterling silver, designed to be worn daily.
-        </p>
-
-        <div class="flex items-center justify-center gap-4 mb-6 md:mb-8">
-          <span class="block w-8 h-px bg-champagne"></span>
-          <div class="diamond" style="width:5px;height:5px;"></div>
-          <span class="block w-8 h-px bg-champagne"></span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          <!-- Product 1 -->
-          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,169,110,0.2)]">
-            <div class="aspect-square bg-charcoal-100 overflow-hidden rounded-sm mb-4">
-              <img src="images/necklace.png" alt="Entwined Hearts Necklace" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-            </div>
-            <h3 class="font-display text-lg md:text-xl font-medium text-charcoal-900 tracking-wide mb-2">Entwined Hearts Necklace</h3>
-            <p class="font-body text-xs text-charcoal-400 italic font-light mb-2">Interlocking double-heart pendant in 925 silver.</p>
-            <p class="font-body text-sm text-champagne font-medium">$55</p>
-          </div>
-
-          <!-- Product 2 -->
-          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,169,110,0.2)]">
-            <div class="aspect-square bg-charcoal-100 overflow-hidden rounded-sm mb-4">
-              <img src="images/ring.png" alt="Solitaire Brilliance Ring" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-            </div>
-            <h3 class="font-display text-lg md:text-xl font-medium text-charcoal-900 tracking-wide mb-2">Solitaire Brilliance Ring</h3>
-            <p class="font-body text-xs text-charcoal-400 italic font-light mb-2">Pear-cut moissanite on a pavé band. GRA certified.</p>
-            <p class="font-body text-sm text-champagne font-medium">$75</p>
-          </div>
-
-          <!-- Product 3 -->
-          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,169,110,0.2)]">
-            <div class="aspect-square bg-charcoal-100 overflow-hidden rounded-sm mb-4">
-              <img src="images/bracelet.png" alt="Tennis Line Bracelet" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-            </div>
-            <h3 class="font-display text-lg md:text-xl font-medium text-charcoal-900 tracking-wide mb-2">Tennis Line Bracelet</h3>
-            <p class="font-body text-xs text-charcoal-400 italic font-light mb-2">Brilliant-cut crystal stones in a timeless silver setting.</p>
-            <p class="font-body text-sm text-champagne font-medium">$65</p>
-          </div>
-        </div>
-
-        <p class="font-body text-xs text-charcoal-400 italic tracking-wide mt-12 text-center">
-          Launching end of April 2026 — Join the waitlist below for 20% off.
-        </p>
-      </section>
-
-      <!-- Waitlist Form -->
-      <section id="waitlist" class="animate-fade-up delay-4">
-        <div class="bg-white/60 backdrop-blur-sm border border-charcoal-100 rounded-sm p-8 md:p-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)]">
-
-          <p class="font-display text-lg md:text-xl text-charcoal-800 mb-1 font-medium tracking-wide">
-            Join the Waitlist
-          </p>
-          <p class="font-body text-xs text-charcoal-400 font-light tracking-wide mb-8">
-            Reserve your spot & receive 20% off your first order.
-          </p>
-
-          <form action="https://formspree.io/f/xzdydqdv" method="POST" class="space-y-5 text-left">
-
-            <!-- 1. Name -->
-            <div class="form-field">
-              <label class="block font-body text-[11px] tracking-[0.15em] text-charcoal-500 uppercase font-medium mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your full name"
-                required
-                class="w-full bg-cream border border-charcoal-200 rounded-sm px-4 py-3 font-body text-sm text-charcoal-800 font-light transition-colors duration-300"
-              >
-            </div>
-
-            <!-- 2. Email -->
-            <div class="form-field">
-              <label class="block font-body text-[11px] tracking-[0.15em] text-charcoal-500 uppercase font-medium mb-2">
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-                class="w-full bg-cream border border-charcoal-200 rounded-sm px-4 py-3 font-body text-sm text-charcoal-800 font-light transition-colors duration-300"
-              >
-            </div>
-
-            <!-- 3. Metal Tone -->
-            <div class="form-field">
-              <label class="block font-body text-[11px] tracking-[0.15em] text-charcoal-500 uppercase font-medium mb-2">
-                Which metal tone do you prefer?
-              </label>
-              <select
-                name="metal_tone"
-                required
-                class="w-full bg-cream border border-charcoal-200 rounded-sm px-4 py-3 font-body text-sm text-charcoal-800 font-light transition-colors duration-300 cursor-pointer"
-              >
-                <option value="" disabled selected class="text-charcoal-400">Select your preference</option>
-                <option value="gold">Gold</option>
-                <option value="silver">Silver</option>
-                <option value="rose-gold">Rose Gold</option>
-                <option value="all">I wear all of them</option>
-              </select>
-            </div>
-
-            <!-- 4. Purchase Frequency -->
-            <div class="form-field">
-              <label class="block font-body text-[11px] tracking-[0.15em] text-charcoal-500 uppercase font-medium mb-2">
-                How often do you buy jewelry?
-              </label>
-              <select
-                name="purchase_frequency"
-                required
-                class="w-full bg-cream border border-charcoal-200 rounded-sm px-4 py-3 font-body text-sm text-charcoal-800 font-light transition-colors duration-300 cursor-pointer"
-              >
-                <option value="" disabled selected class="text-charcoal-400">Select frequency</option>
-                <option value="monthly">Every month</option>
-                <option value="few-times-year">A few times a year</option>
-                <option value="special-occasions">Only for special occasions</option>
-                <option value="rarely">Rarely</option>
-              </select>
-            </div>
-
-            <!-- 5. Shopping For -->
-            <div class="form-field">
-              <label class="block font-body text-[11px] tracking-[0.15em] text-charcoal-500 uppercase font-medium mb-2">
-                Shopping for yourself or as a gift?
-              </label>
-              <select
-                name="shopping_for"
-                required
-                class="w-full bg-cream border border-charcoal-200 rounded-sm px-4 py-3 font-body text-sm text-charcoal-800 font-light transition-colors duration-300 cursor-pointer"
-              >
-                <option value="" disabled selected class="text-charcoal-400">Choose an option</option>
-                <option value="myself">Mostly for myself</option>
-                <option value="gifts">Mostly as gifts</option>
-                <option value="both">Both equally</option>
-              </select>
-            </div>
-
-            <!-- 6. Budget -->
-            <div class="form-field">
-              <label class="block font-body text-[11px] tracking-[0.15em] text-charcoal-500 uppercase font-medium mb-2">
-                Typical budget for a single piece?
-              </label>
-              <select
-                name="budget"
-                required
-                class="w-full bg-cream border border-charcoal-200 rounded-sm px-4 py-3 font-body text-sm text-charcoal-800 font-light transition-colors duration-300 cursor-pointer"
-              >
-                <option value="" disabled selected class="text-charcoal-400">Select your budget</option>
-                <option value="under-30">Under $30</option>
-                <option value="30-60">$30 – $60</option>
-                <option value="60-100">$60 – $100</option>
-                <option value="over-100">Over $100</option>
-              </select>
-            </div>
-
-            <!-- 7. Jewelry Type -->
-            <div class="form-field">
-              <label class="block font-body text-[11px] tracking-[0.15em] text-charcoal-500 uppercase font-medium mb-2">
-                Which type do you wear most?
-              </label>
-              <select
-                name="jewelry_type"
-                required
-                class="w-full bg-cream border border-charcoal-200 rounded-sm px-4 py-3 font-body text-sm text-charcoal-800 font-light transition-colors duration-300 cursor-pointer"
-              >
-                <option value="" disabled selected class="text-charcoal-400">Select jewelry type</option>
-                <option value="necklaces">Necklaces</option>
-                <option value="earrings">Earrings</option>
-                <option value="bracelets">Bracelets</option>
-                <option value="rings">Rings</option>
-              </select>
-            </div>
-
-            <!-- CTA Button -->
-            <div class="pt-3">
-              <button
-                type="submit"
-                class="cta-btn w-full bg-charcoal-900 text-cream font-body text-sm md:text-[13px] tracking-[0.2em] uppercase font-medium py-4 rounded-sm"
-              >
-                <span>Join Waitlist &amp; Get 20% Off</span>
-              </button>
-            </div>
-
-          </form>
-
-          <p class="mt-5 font-body text-[10px] text-charcoal-400 font-light tracking-wide text-center">
-            We respect your privacy. No spam, ever.
-          </p>
-
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="animate-fade-up delay-5">
-    <div class="gold-line"></div>
-    <div class="max-w-5xl mx-auto px-6 py-6 md:py-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="font-body text-[10px] tracking-[0.2em] text-charcoal-400 uppercase font-light">
-        &copy; 2026 Aura Craft. All rights reserved.
-      </p>
-      <div class="flex items-center gap-6">
-        <a href="#" class="font-body text-[10px] tracking-[0.15em] text-charcoal-400 uppercase font-light hover:text-champagne transition-colors duration-300">
-          Instagram
-        </a>
-        <a href="#" class="font-body text-[10px] tracking-[0.15em] text-charcoal-400 uppercase font-light hover:text-champagne transition-colors duration-300">
-          Pinterest
-        </a>
+<!-- ========= MÀN 2: QUIZ ========= -->
+<section class="scene" id="scene-quiz">
+  <div class="scene-inner">
+    <div class="quiz-intro">
+      <div class="gift-icon">🎁</div>
+      <div class="eyebrow">Phần thưởng đang chờ</div>
+      <h1 style="font-size: clamp(1.8rem, 6vw, 2.4rem);"><em>Trả lời đúng</em></h1>
+      <div class="script" style="font-size: 1.4rem;">để mở quà nha</div>
+      <div class="quiz-note">
+        <span class="note-icon">✦</span>
+        Nhớ nhập đúng cả dấu và giọng điệu nha em
       </div>
     </div>
-  </footer>
-
-  <!-- Chatbot -->
-  <div id="chatbot">
-    <div id="chat-icon" onclick="toggleChat()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z" fill="#c9a96e"/>
-        <path d="M7 9H17V11H7V9ZM7 12H15V14H7V12Z" fill="#c9a96e"/>
-      </svg>
+    
+    <div class="quiz-progress-wrap" id="progress-wrap"></div>
+    
+    <div class="quiz-card">
+      <div class="quiz-number" id="quiz-number">Câu 1</div>
+      <div class="quiz-question" id="quiz-question"></div>
+      <div class="quiz-hint" id="quiz-hint"></div>
+      <input 
+        type="text" 
+        class="quiz-input" 
+        id="quiz-input" 
+        placeholder="Câu trả lời..."
+        autocomplete="off">
+      <div class="quiz-feedback" id="quiz-feedback"></div>
     </div>
-    <div id="chat-window">
-      <div id="chat-header">
-        <span>Aura Craft Assistant</span>
-        <button onclick="toggleChat()">×</button>
-      </div>
-      <div id="chat-body"></div>
-      <div id="chat-footer">
-        <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">Send</button>
-      </div>
+    
+    <div class="next-wrap" id="next-wrap">
+      <button class="btn" onclick="nextScene()">Tiếp tục →</button>
     </div>
   </div>
+</section>
 
-  <script>
-    const script = {
-      greeting: "Hello. I'm here to help with Aura Craft — handcrafted pieces in 925 sterling silver, designed for everyday wear. What brings you here today?",
-      faq: [
-        { keywords: ["real silver", "genuine silver", "925 silver", "sterling silver", "silver plated"], response: "Every piece starts with 925 sterling silver as the base metal, then plated with white gold. No brass underneath — that's what causes the green skin reactions in cheaper jewelry." },
-        { keywords: ["real moissanite", "genuine moissanite", "fake moissanite", "moissanite quality", "GRA certificate"], response: "Our Solitaire Brilliance Ring uses certified moissanite with a GRA authenticity certificate included. It's lab-grown, hypoallergenic, and delivers the fire of a diamond at a fraction of the cost." },
-        { keywords: ["price", "cost", "how much", "pricing", "expensive", "cheap"], response: "The signature collection ranges from $55 to $75. Entwined Hearts Necklace at $55, Tennis Line Bracelet at $65, Solitaire Brilliance Ring at $75. All include gift-ready packaging." },
-        { keywords: ["shipping time", "delivery time", "how long shipping", "when arrives", "US shipping"], response: "7–14 business days to the US with full tracking. You'll get a tracking link by email as soon as your order ships." },
-        { keywords: ["return", "refund", "exchange", "return policy", "if I don't like"], response: "30-day no-questions-asked returns with full refund. Send it back in the original box, and we'll process within 5 business days. Free size exchanges too." },
-        { keywords: ["tarnish", "tarnish guarantee", "will it tarnish", "tarnish resistant"], response: "Tarnish-resistant for up to 12 months of normal wear. If it tarnishes under daily use, we'll replace it free — that's our written guarantee." },
-        { keywords: ["gift packaging", "gift ready", "comes in box", "packaging"], response: "Every piece ships in our signature jewelry box with an authenticity card. Ready to gift as-is, no extra wrapping needed." },
-        { keywords: ["ring sizes", "sizes available", "what sizes", "ring size"], response: "The Solitaire Brilliance Ring comes in US sizes 5, 6, 7, and 8. Unsure? Measure an existing ring's inner diameter or visit a local jeweler for free sizing." },
-        { keywords: ["launch date", "when launch", "launch time", "when available"], response: "End of April 2026. Join the waitlist for 20% off and early access before the public drop." },
-        { keywords: ["international shipping", "ship outside US", "overseas shipping"], response: "At launch, we ship to the United States only. International opens later — join the waitlist to be notified when it does." }
-      ],
-      closing: { keywords: ["love it", "want it", "how do I buy", "interested", "beautiful", "buy now"], response: "Glad you like it. Scroll down to the waitlist form to save 20% off and get early access before launch. Want me to walk you through the form?" },
-      formRedirect: { keywords: ["think about", "maybe later", "not sure", "not ready", "later"], response: "No rush. The waitlist is free and gets you 20% off plus early access. Join now for a heads-up when we launch." },
-      fallback: "I don't have a ready answer for that, but our founder Roy can help directly. Join the waitlist and he'll reply to your email within 24 hours."
-    };
+<!-- ========= MÀN 3: VIDEO ========= -->
+<section class="scene" id="scene-video">
+  <div class="scene-inner">
+    <div class="video-intro">
+      <div class="eyebrow">Có chuyện anh muốn kể</div>
+      <h1 style="font-size: clamp(2rem, 7vw, 2.6rem); margin-bottom: 4px;"><em>Năm năm</em></h1>
+      <div class="script" style="font-size: 1.4rem; margin-bottom: 0;">trong một câu chuyện nhỏ</div>
+    </div>
+    
+    <div class="video-card">
+      <div class="video-wrapper" id="video-wrapper">
+        <video 
+          id="story-video" 
+          class="video-element" 
+          playsinline
+          preload="metadata"
+          controls>
+          <source src="story.mp4" type="video/mp4">
+          Trình duyệt không hỗ trợ video.
+        </video>
+        
+        <!-- Poster overlay (hiện trước khi phát) -->
+        <div class="video-poster" id="video-poster">
+          <div class="poster-corner tl"></div>
+          <div class="poster-corner tr"></div>
+          <div class="poster-corner bl"></div>
+          <div class="poster-corner br"></div>
+          
+          <div class="poster-content">
+            <div class="poster-eyebrow">✦  Cho em  ✦</div>
+            <div class="poster-title"><em>Mở lòng ra,<br>nghe anh kể</em></div>
+            <div class="poster-subtitle">— một chút thôi —</div>
+            
+            <div class="play-btn-wrap">
+              <div class="play-btn"></div>
+            </div>
+            
+            <div class="poster-hint">Chạm để phát</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="next-wrap" id="video-next-wrap">
+      <button class="btn btn-love" onclick="nextScene()">Yêu Anh</button>
+    </div>
+  </div>
+</section>
 
-    let chatOpen = false;
-    let messages = [];
-    let greeted = false;
+<!-- ========= MÀN 4: LÁ THƯ + KÝ TÊN ========= -->
+<section class="scene" id="scene-letter">
+  <div class="scene-inner">
+    <div class="letter-intro">
+      <div class="eyebrow">Lá thư cho em</div>
+      <h1 style="font-size: clamp(2rem, 7vw, 2.6rem); margin-bottom: 4px;"><em>Đọc chậm thôi</em></h1>
+      <div class="script" style="font-size: 1.4rem; margin-bottom: 0;">— anh viết bằng cả lòng —</div>
+    </div>
+    
+    <div class="letter-paper">
+      <div class="letter-corner-tr"></div>
+      <div class="letter-corner-bl"></div>
+      
+      <div class="letter-greeting">Này em iu,</div>
+      
+      <div class="letter-body">
+        <p>5 năm qua trải qua quá nhiều cảm xúc bùn coá dui coá nhưng mình vẫn còn cầm tay nhau, vẫn ở bên nhau, lắng nghe nhau, đồng cảm động viên nhau.</p>
+        
+        <p>Anh trân trọng mối tình lày lắm.</p>
+        
+        <p>Nên hãy cùng nhau giữ gìn và xây dựng nó nhé em iu. Cùng nhau đi đến những nơi chưa từng đến, làm những thứ chưa từng làm.</p>
+        
+        <p>Cùng nhau cam kết nhé em iu.</p>
+      </div>
+      
+      <div class="letter-signoff">— Của em ♥</div>
+    </div>
+    
+    <div class="signature-section">
+      <div class="sig-label">
+        <div class="eyebrow">Bản cam kết</div>
+        <div class="sig-title"><em>Em ký vào đây nha</em></div>
+        <div class="sig-hint">Dùng ngón tay (hoặc chuột) để ký</div>
+      </div>
+      
+      <div class="sig-pad-wrap" id="sig-wrap">
+        <canvas class="signature-pad" id="signature-pad"></canvas>
+        <div class="sig-baseline"></div>
+        <div class="sig-x-mark">×</div>
+      </div>
+      
+      <button class="sig-clear" onclick="clearSignature()">Ký lại</button>
+    </div>
+    
+    <button class="btn btn-love-sign" id="love-sign-btn" onclick="loveSign()" disabled>Love Sign</button>
+  </div>
+</section>
 
-    function toggleChat() {
-      chatOpen = !chatOpen;
-      document.getElementById('chat-window').style.display = chatOpen ? 'flex' : 'none';
-      if (chatOpen && !greeted) {
-        setTimeout(() => {
-          addMessage('bot', script.greeting);
-          greeted = true;
-        }, 400);
-      }
-    }
+<!-- ========= MÀN 5: FINAL ========= -->
+<section class="scene" id="scene-final">
+  <div class="scene-inner">
+    <div class="final-hero">
+      <div class="final-heart">♥</div>
+      <div class="eyebrow">Hợp đồng đã được ký</div>
+      <h1 class="final-title">
+        Chúc mừng em đã hoàn thành<br>
+        <span class="highlight"><em>hợp đồng tình yêu</em></span><br>
+        với người đẹp trai nhất thế giới
+      </h1>
+      <div class="final-subtitle">Anh ấy yêu em ♥</div>
+      <div class="final-tagline">— và sẽ yêu em mãi mãi —</div>
+    </div>
+    
+    <div class="gift-card">
+      <div class="gift-eyebrow">✦  Quà của em  ✦</div>
+      <div class="gift-title"><em>Phần thưởng đặc biệt</em></div>
+      
+      <div class="gift-steps">
+        <div class="gift-step">
+          <div class="gift-step-num">1</div>
+          <div class="gift-step-text">
+            Liên hệ <strong>người sở hữu cái mông</strong> của em
+          </div>
+        </div>
+        
+        <div class="gift-step">
+          <div class="gift-step-num">2</div>
+          <div class="gift-step-text">
+            Đưa mông cho anh ấy <strong>đánh yêu 3 cái</strong>
+            <em style="display: block; font-size: 13px; color: var(--ink-soft); margin-top: 4px;">(nhẹ nhàng thôi nha 😊)</em>
+          </div>
+        </div>
+        
+        <div class="gift-step">
+          <div class="gift-step-num">3</div>
+          <div class="gift-step-text">
+            Nhận <strong>món quà vô cùng giá trị</strong> ♥
+          </div>
+        </div>
+      </div>
+      
+      <div class="gift-reward">
+        <div class="gift-reward-icon">🎁</div>
+        <div class="gift-reward-text">
+          Phần thưởng đang đợi<br>
+          ngay cạnh em rồi đó!
+        </div>
+      </div>
+      
+      <div class="gift-hint">
+        <span class="hint-arrow">↑</span>
+        Quay sang bên cạnh là thấy
+      </div>
+    </div>
+    
+    <div class="final-signoff">
+      <div class="final-signoff-text">
+        Cảm ơn em — vì đã chọn anh<br>
+        năm năm trước,<br>
+        và mỗi ngày sau đó ♥
+      </div>
+      <div class="final-date">— 5 năm & mãi mãi —</div>
+    </div>
+  </div>
+</section>
 
-    function addMessage(type, text, showButton = false) {
-      messages.push({ type, text, showButton });
-      renderMessages();
-    }
+<script>
+// ============ PETALS ============
+const petalsContainer = document.getElementById('petals');
+for (let i = 0; i < 15; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  const size = Math.random() * 6 + 4;
+  p.style.width = size + 'px';
+  p.style.height = size + 'px';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (Math.random() * 15 + 15) + 's';
+  p.style.animationDelay = Math.random() * 20 + 's';
+  // Random petal colors
+  const colors = ['#d49b8a', '#d4b896', '#e8c4b8'];
+  p.style.background = colors[Math.floor(Math.random() * colors.length)];
+  petalsContainer.appendChild(p);
+}
 
-    function renderMessages() {
-      const body = document.getElementById('chat-body');
-      body.innerHTML = '';
-      messages.forEach(msg => {
-        const div = document.createElement('div');
-        div.className = msg.type === 'bot' ? 'message bot' : 'message user';
-        div.innerHTML = msg.text;
-        if (msg.showButton) {
-          const btn = document.createElement('button');
-          btn.className = 'waitlist-btn';
-          btn.textContent = 'Join Waitlist Now';
-          btn.onclick = scrollToWaitlist;
-          div.appendChild(btn);
-        }
-        body.appendChild(div);
-      });
-      body.scrollTop = body.scrollHeight;
-    }
+// ============ SCENE MANAGEMENT ============
+const scenes = ['scene-lock', 'scene-quiz', 'scene-video', 'scene-letter', 'scene-final'];
+let currentScene = 0;
 
-    function showTyping() {
-      const body = document.getElementById('chat-body');
-      const typing = document.createElement('div');
-      typing.className = 'typing';
-      typing.textContent = '...';
-      body.appendChild(typing);
-      body.scrollTop = body.scrollHeight;
-      return typing;
-    }
+function showScene(idx) {
+  scenes.forEach((id, i) => {
+    document.getElementById(id).classList.toggle('active', i === idx);
+  });
+  currentScene = idx;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  if (scenes[idx] === 'scene-quiz') initQuiz();
+  if (scenes[idx] === 'scene-video') initVideo();
+  if (scenes[idx] === 'scene-letter') initSignature();
+  if (scenes[idx] === 'scene-final') initFinal();
+}
 
-    function hideTyping(typing) {
-      if (typing) typing.remove();
-    }
+function nextScene() {
+  if (currentScene < scenes.length - 1) showScene(currentScene + 1);
+}
 
-    function sendMessage() {
-      const input = document.getElementById('chat-input');
-      const text = input.value.trim();
-      if (!text) return;
-      addMessage('user', text);
+// ============ LOCK ============
+const PASSWORD = '2504';
+
+const passwordInput = document.getElementById('password');
+passwordInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') unlock();
+});
+
+// Auto-focus password input
+setTimeout(() => passwordInput.focus(), 600);
+
+function unlock() {
+  const input = document.getElementById('password');
+  const errMsg = document.getElementById('lock-error');
+  const value = input.value.trim();
+  
+  if (value === PASSWORD) {
+    errMsg.textContent = '';
+    input.classList.remove('error');
+    setTimeout(() => nextScene(), 400);
+  } else {
+    input.classList.add('error');
+    errMsg.textContent = 'Sai rồi nha — thử lại đi em ♥';
+    setTimeout(() => {
+      input.classList.remove('error');
       input.value = '';
-      const typing = showTyping();
-      setTimeout(() => {
-        hideTyping(typing);
-        const response = getResponse(text.toLowerCase());
-        const showButton = response.type === 'closing' || response.type === 'formRedirect';
-        addMessage('bot', response.text, showButton);
-      }, 600);
-    }
+      input.focus();
+    }, 600);
+  }
+}
 
-    function handleKeyPress(e) {
-      if (e.key === 'Enter') sendMessage();
-    }
+// ============ QUIZ ============
+const quizData = [
+  {
+    q: 'Cái mông của em là của ai?',
+    hint: '(2 chữ — một cái tên)',
+    answers: ['Hoàng Ku']
+  },
+  {
+    q: 'Ai đẹp trai nhất thế giới?',
+    hint: '(2 chữ — một cái tên)',
+    answers: ['Nguyễn Hoàng']
+  },
+  {
+    q: 'Cho anh sờ tí nha?',
+    hint: '(1 chữ)',
+    answers: ['Dạa']
+  }
+];
 
-    function getResponse(userText) {
-      // Check closing
-      if (script.closing.keywords.some(k => userText.includes(k))) {
-        return { type: 'closing', text: script.closing.response };
-      }
-      // Check form redirect
-      if (script.formRedirect.keywords.some(k => userText.includes(k))) {
-        return { type: 'formRedirect', text: script.formRedirect.response };
-      }
-      // Check FAQ
-      for (let faq of script.faq) {
-        if (faq.keywords.some(k => userText.includes(k))) {
-          return { type: 'faq', text: faq.response };
-        }
-      }
-      // Fallback
-      return { type: 'fallback', text: script.fallback };
-    }
+let quizIndex = 0;
+let quizDone = false;
 
-    function scrollToWaitlist() {
-      document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+function initQuiz() {
+  quizIndex = 0;
+  quizDone = false;
+  buildProgress();
+  renderQuiz();
+  document.getElementById('next-wrap').classList.remove('show');
+}
 
-  <style>
-    #chatbot {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 100;
+function buildProgress() {
+  const wrap = document.getElementById('progress-wrap');
+  wrap.innerHTML = '';
+  for (let i = 0; i < quizData.length; i++) {
+    const pill = document.createElement('div');
+    pill.className = 'progress-pill';
+    if (i < quizIndex) pill.classList.add('done');
+    else if (i === quizIndex) pill.classList.add('active');
+    wrap.appendChild(pill);
+  }
+}
+
+function normalize(str) {
+  // Chỉ trim và gộp khoảng trắng thừa, GIỮ NGUYÊN dấu và hoa/thường
+  return str.trim().replace(/\s+/g, ' ');
+}
+
+function renderQuiz() {
+  if (quizIndex >= quizData.length) {
+    finishQuiz();
+    return;
+  }
+  
+  const data = quizData[quizIndex];
+  document.getElementById('quiz-number').textContent = `Câu ${quizIndex + 1} / ${quizData.length}`;
+  document.getElementById('quiz-question').textContent = data.q;
+  document.getElementById('quiz-hint').textContent = data.hint;
+  
+  const input = document.getElementById('quiz-input');
+  input.value = '';
+  input.disabled = false;
+  input.classList.remove('error', 'success');
+  input.placeholder = 'Câu trả lời...';
+  
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-feedback').classList.remove('success');
+  
+  buildProgress();
+  
+  // Bind enter key
+  input.onkeypress = (e) => {
+    if (e.key === 'Enter') checkQuiz();
+  };
+  
+  setTimeout(() => input.focus(), 300);
+}
+
+function checkQuiz() {
+  if (quizDone) return;
+  
+  const input = document.getElementById('quiz-input');
+  const feedback = document.getElementById('quiz-feedback');
+  const data = quizData[quizIndex];
+  const userAnswer = normalize(input.value);
+  
+  if (!userAnswer) return;
+  
+  const correct = data.answers.some(a => normalize(a) === userAnswer);
+  
+  if (correct) {
+    input.classList.add('success');
+    input.disabled = true;
+    feedback.classList.add('success');
+    
+    const messages = ['Đúng rồi ♥', 'Em giỏi quá ♥', 'Chuẩn không cần chỉnh ♥'];
+    feedback.textContent = messages[quizIndex];
+    
+    setTimeout(() => {
+      quizIndex++;
+      renderQuiz();
+    }, 1400);
+  } else {
+    input.classList.add('error');
+    feedback.textContent = 'Thử lại nha em ♥';
+    setTimeout(() => {
+      input.classList.remove('error');
+      input.value = '';
+      input.focus();
+      feedback.textContent = '';
+    }, 700);
+  }
+}
+
+// Bind quiz input on initial load
+// (Đã removed - vì renderQuiz() đã set input.onkeypress mỗi lần render câu mới,
+// nếu bind thêm ở đây sẽ làm checkQuiz() chạy 2 lần khi nhấn Enter → nhảy câu)
+
+function finishQuiz() {
+  quizDone = true;
+  
+  // Update UI to show completion
+  document.getElementById('quiz-number').textContent = '✦  Hoàn thành  ✦';
+  document.getElementById('quiz-question').textContent = 'Em luôn biết câu trả lời.';
+  document.getElementById('quiz-hint').textContent = '';
+  
+  const input = document.getElementById('quiz-input');
+  input.style.display = 'none';
+  
+  const feedback = document.getElementById('quiz-feedback');
+  feedback.classList.add('success');
+  feedback.textContent = 'Phần thưởng đang chờ em ♥';
+  
+  // Update progress
+  const pills = document.querySelectorAll('.progress-pill');
+  pills.forEach(p => {
+    p.classList.remove('active');
+    p.classList.add('done');
+  });
+  
+  // Show next button
+  setTimeout(() => {
+    document.getElementById('next-wrap').classList.add('show');
+  }, 600);
+}
+
+// ============ VIDEO ============
+let videoInitialized = false;
+
+function initVideo() {
+  const video = document.getElementById('story-video');
+  const poster = document.getElementById('video-poster');
+  const nextWrap = document.getElementById('video-next-wrap');
+  
+  // Reset state khi vào lại màn
+  poster.classList.remove('hidden');
+  nextWrap.classList.remove('show');
+  
+  if (videoInitialized) return;
+  videoInitialized = true;
+  
+  // Bấm poster → play video, ẩn poster
+  poster.addEventListener('click', () => {
+    poster.classList.add('hidden');
+    video.play().catch(err => {
+      console.warn('Video play error:', err);
+      // Nếu lỗi (ví dụ chưa có file video), vẫn cho qua
+      nextWrap.classList.add('show');
+    });
+  });
+  
+  // Khi video kết thúc → hiện nút "Yêu Anh"
+  video.addEventListener('ended', () => {
+    nextWrap.classList.add('show');
+  });
+  
+  // Nếu video lỗi (không tìm thấy file) → vẫn cho qua
+  video.addEventListener('error', () => {
+    console.warn('Video error - bỏ qua, hiện nút Yêu Anh');
+    nextWrap.classList.add('show');
+  });
+}
+
+// ============ SIGNATURE PAD ============
+let signatureInitialized = false;
+let hasSignature = false;
+
+function initSignature() {
+  const canvas = document.getElementById('signature-pad');
+  const wrap = document.getElementById('sig-wrap');
+  const btn = document.getElementById('love-sign-btn');
+  
+  // Reset trạng thái
+  hasSignature = false;
+  wrap.classList.remove('has-signature');
+  btn.disabled = true;
+  
+  // Resize canvas theo display size (chỉ làm 1 lần)
+  if (!signatureInitialized) {
+    signatureInitialized = true;
+    setupSignaturePad(canvas);
+  } else {
+    // Clear nét cũ khi quay lại màn
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
+function setupSignaturePad(canvas) {
+  const ctx = canvas.getContext('2d');
+  
+  // Resize cho retina
+  function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    
+    // Set lại style sau khi resize
+    ctx.strokeStyle = '#8b2942';
+    ctx.lineWidth = 2.5;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+  }
+  
+  resizeCanvas();
+  
+  let drawing = false;
+  let lastX = 0, lastY = 0;
+  
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return {
+      x: clientX - rect.left,
+      y: clientY - rect.top
+    };
+  }
+  
+  function start(e) {
+    e.preventDefault();
+    drawing = true;
+    const pos = getPos(e);
+    lastX = pos.x;
+    lastY = pos.y;
+    
+    // Mark đã ký
+    if (!hasSignature) {
+      hasSignature = true;
+      document.getElementById('sig-wrap').classList.add('has-signature');
+      document.getElementById('love-sign-btn').disabled = false;
     }
-    #chat-icon {
-      width: 56px;
-      height: 56px;
-      background: #1a1a1a;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  function move(e) {
+    if (!drawing) return;
+    e.preventDefault();
+    const pos = getPos(e);
+    
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    
+    lastX = pos.x;
+    lastY = pos.y;
+  }
+  
+  function end(e) {
+    if (e) e.preventDefault();
+    drawing = false;
+  }
+  
+  // Mouse events
+  canvas.addEventListener('mousedown', start);
+  canvas.addEventListener('mousemove', move);
+  canvas.addEventListener('mouseup', end);
+  canvas.addEventListener('mouseleave', end);
+  
+  // Touch events (mobile)
+  canvas.addEventListener('touchstart', start, { passive: false });
+  canvas.addEventListener('touchmove', move, { passive: false });
+  canvas.addEventListener('touchend', end, { passive: false });
+  
+  // Resize khi xoay màn hình
+  window.addEventListener('resize', () => {
+    if (currentScene === scenes.indexOf('scene-letter')) {
+      // Save signature khi resize
+      const dataUrl = canvas.toDataURL();
+      resizeCanvas();
+      const img = new Image();
+      img.onload = () => ctx.drawImage(img, 0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
+      img.src = dataUrl;
     }
-    #chat-icon:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 30px rgba(201, 169, 110, 0.3);
+  });
+}
+
+function clearSignature() {
+  const canvas = document.getElementById('signature-pad');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  hasSignature = false;
+  document.getElementById('sig-wrap').classList.remove('has-signature');
+  document.getElementById('love-sign-btn').disabled = true;
+}
+
+function loveSign() {
+  if (!hasSignature) return;
+  
+  // Confetti effect
+  spawnConfetti();
+  
+  // Chuyển scene sau confetti chạy
+  setTimeout(() => nextScene(), 1200);
+}
+
+function spawnConfetti() {
+  const colors = ['#8b2942', '#d49b8a', '#b8915f', '#d4b896', '#6b1f2a', '#e8c4b8'];
+  const count = 60;
+  
+  for (let i = 0; i < count; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    c.style.animationDelay = Math.random() * 0.4 + 's';
+    
+    // Random shape: tròn hoặc vuông
+    if (Math.random() > 0.5) {
+      c.style.borderRadius = '50%';
     }
-    #chat-window {
-      display: none;
-      position: fixed;
-      bottom: 96px;
-      right: 24px;
-      width: 360px;
-      height: 520px;
-      background: #faf8f4;
-      border-radius: 8px;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.1);
-      flex-direction: column;
-      overflow: hidden;
-    }
-    #chat-header {
-      background: #1a1a1a;
-      color: #faf8f4;
-      padding: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    #chat-header button {
-      background: none;
-      border: none;
-      color: #faf8f4;
-      font-size: 24px;
-      cursor: pointer;
-    }
-    #chat-body {
-      flex: 1;
-      padding: 16px;
-      overflow-y: auto;
-      font-family: 'Jost', sans-serif;
-      min-height: 0;
-    }
-    .message {
-      margin-bottom: 12px;
-      padding: 12px;
-      border-radius: 8px;
-      max-width: 80%;
-    }
-    .message.bot {
-      background: white;
-      border: 1px solid #e7e7e7;
-      color: #2d2d2d;
-      align-self: flex-start;
-    }
-    .message.user {
-      background: #1a1a1a;
-      color: #faf8f4;
-      align-self: flex-end;
-      margin-left: auto;
-    }
-    .typing {
-      color: #888;
-      font-style: italic;
-    }
-    .waitlist-btn {
-      display: block;
-      width: 100%;
-      margin-top: 8px;
-      padding: 8px;
-      background: #1a1a1a;
-      color: #faf8f4;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: 'Jost', sans-serif;
-    }
-    #chat-footer {
-      padding: 16px;
-      display: flex;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    #chat-input {
-      flex: 1;
-      padding: 8px;
-      border: 1px solid #e7e7e7;
-      border-radius: 4px;
-      font-family: 'Jost', sans-serif;
-    }
-    #chat-footer button {
-      padding: 8px 16px;
-      background: #c9a96e;
-      color: #1a1a1a;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: 'Jost', sans-serif;
-    }
-    @media (max-width: 480px) {
-      #chat-window {
-        width: calc(100vw - 32px);
-        right: 16px;
-      }
-    }
-  </style>
+    
+    // Random size
+    const size = Math.random() * 6 + 6;
+    c.style.width = size + 'px';
+    c.style.height = size + 'px';
+    
+    document.body.appendChild(c);
+    
+    // Cleanup sau khi animation xong
+    setTimeout(() => c.remove(), 5000);
+  }
+}
+
+// ============ FINAL ============
+let finalInitialized = false;
+
+function initFinal() {
+  // Bắn confetti khi vào màn (nhiều hơn lần đầu để cảm giác long trọng)
+  setTimeout(() => spawnConfetti(), 300);
+  setTimeout(() => spawnConfetti(), 1500);
+  
+  if (finalInitialized) return;
+  finalInitialized = true;
+}
+</script>
 
 </body>
 </html>
